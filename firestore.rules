@@ -1,0 +1,46 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Watumiaji ──────────────────────────────────────────────────
+    // Mtumiaji anaweza kusoma na kuandika rekodi yake tu
+    match /watumiaji/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ── Maduka ─────────────────────────────────────────────────────
+    // Mmiliki tu anaweza kusoma/kuandika duka lake
+    match /maduka/{dukaId} {
+      allow read: if request.auth != null
+        && exists(/databases/$(database)/documents/watumiaji/$(request.auth.uid))
+        && get(/databases/$(database)/documents/watumiaji/$(request.auth.uid)).data.dukaId == dukaId;
+
+      allow write: if request.auth != null
+        && (resource == null || resource.data.mmilikiId == request.auth.uid);
+    }
+
+    // ── Bidhaa ─────────────────────────────────────────────────────
+    // Mtumiaji anaweza kusoma/kuandika bidhaa zake tu (dukaId == uid)
+    match /bidhaa/{bidhaaId} {
+      allow read, write: if request.auth != null
+        && (resource == null
+            ? request.resource.data.dukaId == request.auth.uid
+            : resource.data.dukaId == request.auth.uid);
+    }
+
+    // ── Maagizo ────────────────────────────────────────────────────
+    // Mmiliki wa duka anaweza kusoma/kuandika maagizo yake
+    match /maagizo/{agizoId} {
+      allow read, write: if request.auth != null
+        && (resource == null
+            ? request.resource.data.dukaId == request.auth.uid
+            : resource.data.dukaId == request.auth.uid);
+    }
+
+    // ── Ripoti ─────────────────────────────────────────────────────
+    match /ripoti/{ripotiId} {
+      allow read, write: if request.auth != null
+        && resource.data.dukaId == request.auth.uid;
+    }
+  }
+}

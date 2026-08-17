@@ -1,0 +1,30 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "bidhaa",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "dukaId", "order": "ASCENDING" },
+        { "fieldPath": "iliyoundwa", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "maagizo",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "dukaId", "order": "ASCENDING" },
+        { "fieldPath": "iliyoundwa", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "maagizo",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "dukaId", "order": "ASCENDING" },
+        { "fieldPath": "hali", "order": "ASCENDING" },
+        { "fieldPath": "iliyoundwa", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
