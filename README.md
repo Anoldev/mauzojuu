@@ -7,7 +7,7 @@
 
 ## 📱 Kuhusu App
 
-**MauzoJuu** ni mfumo wa kukuza biashara unaoruhusu wafanyabiashara Tanzania na Afrika Mashariki:
+**MauzoJuu** ni mfumo wa kukuza biashara unaoruhusu  wafanyabiashara Tanzania na Afrika Mashariki:
 - Kuunda duka lao la mtandaoni kwa urahisi
 - Kuorodhesha bidhaa na picha
 - Kupokea na kusimamia maagizo ya wateja
@@ -125,4 +125,4 @@ flutter build appbundle --release
 
 ---
 
-*Made with ❤️ kwa Tanzania na Afrika Mashariki*
+*Made with ❤️ for Tanzania na Afrika Mashariki*
